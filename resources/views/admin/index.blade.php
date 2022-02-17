@@ -8,13 +8,13 @@
                 @csrf
                 <select name="category_id" id="">
                     @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }} </option>
+                        <option value="{{ $category->Id }}">{{ $category->name }} </option>
                     @endforeach
                 </select>
                 <br>
                 <select name="author_id" id="">
                     @foreach ($authors as $author)
-                        <option value="{{ $author->id }}">{{ $author->firstname }} {{ $author->lastname }}</option>
+                        <option value="{{ $author->Id }}">{{ $author->firstname }} {{ $author->lastname }}</option>
                     @endforeach
                 </select>
                 <br>

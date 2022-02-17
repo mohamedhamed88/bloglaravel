@@ -18,6 +18,7 @@ class AdminController extends Controller
     }
     public function addArticle(Request $request)
     {
+
         Post::create($request->all());
         return back();
     }
