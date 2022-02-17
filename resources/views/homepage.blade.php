@@ -16,7 +16,7 @@
                     <article class="card shadow m-2 d-flex flex-column">
                         <header class="card-header bg-warning flex-grow-1">
                             <h3 class="h4">
-                                <a class="text-white font-weight-bold" href="show_post.php?id={{ $post->id }}"
+                                <a class="text-white font-weight-bold" href="{{ route('detailpost', $post->Id) }}"
                                     title="Consulter l'article">
                                     {{ $post->title }}
                                 </a>
@@ -34,7 +34,7 @@
 
                             </div>
                             <p class="mt-5 card-text text-right">
-                                <a class="btn btn-warning" href="show-post.php?post_id={{ $post->id }}"
+                                <a class="btn btn-warning" href="{{ route('detailpost', $post->Id) }}"
                                     title="Consulter l'article">Lire la suite</a>
                             </p>
                         </div>

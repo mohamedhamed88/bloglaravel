@@ -6,11 +6,15 @@ use App\Author;
 use App\Category;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+
+
     public function index()
     {
+
         $posts = Post::all();
         $categories = Category::all();
         $authors = Author::all();
@@ -19,7 +23,20 @@ class AdminController extends Controller
     public function addArticle(Request $request)
     {
 
-        Post::create($request->all());
+        if ($request->has('file')) {
+            $url = time() . $request->file->getClientOriginalName();
+            $path = "imagepost";
+            $request->file->move($path, $url);
+        }
+        $post = new Post();
+
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->image = $url;
+        $post->author_id = $request->author_id;
+        $post->category_id = $request->category_id;
+
+        $post->save();
         return back();
     }
     public function categories()
